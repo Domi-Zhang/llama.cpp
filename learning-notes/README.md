@@ -1,11 +1,13 @@
 # llama.cpp 学习备忘录索引
 
 > 本文件夹存放学习 llama.cpp 的走读/精读备忘录，按数字前缀排序。
-> 00 = 主流程（第一遍必读），01+ = 精读专题。
+> 00/00a = 主流程与预备知识（第一遍必读），01+ = 精读专题。
+> 2026-08-17 起全部笔记已扩充为初学者详细版：公式带推导与数值例子、关键代码带设计动机讲解。
 
 ## 文档列表
 
 - [00-主流程-推理链路.md](00-%E4%B8%BB%E6%B5%81%E7%A8%8B-%E6%8E%A8%E7%90%86%E9%93%BE%E8%B7%AF.md) - 第一遍：完整推理链路 + 调用关系图（含每步输入/产出）
+- [00a-预备知识-张量与计算图.md](00a-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86-%E5%BC%A0%E9%87%8F%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%9B%BE.md) - 前置：张量形状/ne-nb、计算图、后端与批处理心智模型（精读系列打底）
 - [01-精读-LLaMA解码器构图.md](01-%E7%B2%BE%E8%AF%BB-LLaMA%E8%A7%A3%E7%A0%81%E5%99%A8%E6%9E%84%E5%9B%BE.md) - 精读：build_graph 内部，一层 transformer 的逐层构图
 - [02-精读-Attention构图.md](02-%E7%B2%BE%E8%AF%BB-Attention%E6%9E%84%E5%9B%BE.md) - 精读：build_attn_mha，Flash-Attention vs 经典路径
 - [03-精读-MoE-FFN构图.md](03-%E7%B2%BE%E8%AF%BB-MoE-FFN%E6%9E%84%E5%9B%BE.md) - 精读：build_moe_ffn，路由器 + top-k 专家选择
@@ -20,12 +22,13 @@
 - [12-精读-llama-server架构.md](12-%E7%B2%BE%E8%AF%BB-llama-server%E6%9E%B6%E6%9E%84.md) - 精读：HTTP/任务队列/槽位，并发推理引擎
 - [13-精读-对话模板与Jinja引擎.md](13-%E7%B2%BE%E8%AF%BB-%E5%AF%B9%E8%AF%9D%E6%A8%A1%E6%9D%BF%E4%B8%8EJinja%E5%BC%95%E6%93%8E.md) - 精读：common/jinja，自研 Jinja 渲染对话
 - [14-精读-grammar与PEG解析.md](14-%E7%B2%BE%E8%AF%BB-grammar%E4%B8%8EPEG%E8%A7%A3%E6%9E%90.md) - 精读：GBNF 约束采样 + PEG 解析
+- [15-Transformer论文与llama.cpp实现对照.md](15-Transformer%E8%AE%BA%E6%96%87%E4%B8%8Ellama.cpp%E5%AE%9E%E7%8E%B0%E5%AF%B9%E7%85%A7.md) - 对照：论文各元素 vs 实现，变与不变
 - [开发手册-构建与运行.md](%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C-%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%A1%8C.md) - 实操：构建/运行 CLI 与 server/常见调试
 
 ## 待写专题（计划）
-- [ ] 15-多模态 (src/models/mtmd，vision/audio 输入)
-- [ ] 16-投机解码 speculative (common/speculative.cpp)
-- [ ] 17-嵌入与重排序模型 (embedding/rerank 推理路径)
+- [ ] 16-多模态 (src/models/mtmd，vision/audio 输入)
+- [ ] 17-投机解码 speculative (common/speculative.cpp)
+- [ ] 18-嵌入与重排序模型 (embedding/rerank 推理路径)
 
 ## 阅读约定
 - 每个文件顶部写：学习目标 / 日期 / 状态
